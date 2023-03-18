@@ -1,0 +1,4 @@
+BaseCard {
+    -fx-min-width: 800;
+    -fx-min-height: 400;
+}
