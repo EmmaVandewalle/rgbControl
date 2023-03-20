@@ -36,7 +36,7 @@ public class Mode extends VBox implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         chosen.setSelected(false);
-        chosen = ((RadioButton) actionEvent.getSource());
+        chosen = (RadioButton) actionEvent.getSource();
         chosen.setSelected(true);
     }
 }

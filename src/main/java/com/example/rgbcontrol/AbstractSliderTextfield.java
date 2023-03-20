@@ -16,7 +16,21 @@ abstract public class AbstractSliderTextfield {
             value.setValue(newV.intValue());
         });
 
-        score.setTextFormatter(new TextFormatter<Number>(new NumberStringConverter(new DecimalFormat())));
+        score.textProperty().addListener((obs, oldV, newV) -> {
+            if (newV.isEmpty()) return;
+            try {
+                int number = Integer.parseInt(newV);
+                if (number < minVal || number > maxVal) {
+                    score.setText(oldV);
+                    return;
+                }
+                score.setText(newV);
+            } catch (NumberFormatException e) {
+                score.setText(oldV);
+            }
+        });
+
+//        score.setTextFormatter(new TextFormatter<Number>(new NumberStringConverter(new DecimalFormat())));
 
         Bindings.bindBidirectional(score.textProperty(), value.valueProperty(), new NumberStringConverter());
     }
