@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.util.converter.NumberStringConverter;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 
 abstract public class AbstractSliderTextfield {
@@ -15,22 +16,24 @@ abstract public class AbstractSliderTextfield {
             value.setValue(newV.intValue());
         });
 
-        score.textProperty().addListener((obs, oldV, newV) -> {
-            if (newV.isEmpty()) return;
-            try {
-                int number = Integer.parseInt(newV);
-                if (number < minVal || number > maxVal) {
-                    score.setText(oldV);
-//                    value.setValue(Integer.parseInt(oldV));
-                    return;
-                }
-                score.setText(newV);
-//                value.setValue(number);
-            } catch (NumberFormatException e) {
-                score.setText(oldV);
-//                value.setValue(Integer.parseInt(oldV));
-            }
-        });
+//        score.textProperty().addListener((obs, oldV, newV) -> {
+//            if (newV.isEmpty()) return;
+//            try {
+//                int number = Integer.parseInt(newV);
+//                if (number < minVal || number > maxVal) {
+//                    score.setText(oldV);
+////                    value.setValue(Integer.parseInt(oldV));
+//                    return;
+//                }
+//                score.setText(newV);
+////                value.setValue(number);
+//            } catch (NumberFormatException e) {
+//                score.setText(oldV);
+////                value.setValue(Integer.parseInt(oldV));
+//            }
+//        });
+
+        score.setTextFormatter(new TextFormatter<Number>(new NumberStringConverter(new DecimalFormat())));
 
 //        score.setTextFormatter(new TextFormatter<>(c -> {
 //            if (c.isContentChange()) {
