@@ -19,7 +19,9 @@ public class Brightness extends VBox {
         value.setMin(minVal);
         int maxVal = 100;
         value.setMax(maxVal);
+        value.setValue(0.0);
         TextField score = new TextField();
+        score.setText("0");
 
         AbstractSliderTextfield.setBinding(minVal, maxVal, value, score);
 

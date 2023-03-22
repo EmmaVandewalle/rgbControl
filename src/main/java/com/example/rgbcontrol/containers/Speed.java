@@ -23,7 +23,9 @@ public class Speed extends VBox {
         value.setMin(minVal);
         int maxVal = 9;
         value.setMax(maxVal);
+        value.setValue(0.0);
         TextField score = new TextField();
+        score.setText("0");
 
         AbstractSliderTextfield.setBinding(minVal, maxVal, value, score);
 
