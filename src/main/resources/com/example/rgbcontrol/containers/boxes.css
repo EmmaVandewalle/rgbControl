@@ -1,14 +1,36 @@
 Mode, Speed, Brightness, Direction, Zone {
-    -fx-border-color: black;
+    -fx-border-color: white;
     -fx-border-insets: 20;
 }
 
 Zone {
     -fx-min-width: 500;
-    -fx-min-height: 350;
+    -fx-min-height: 125;
+}
+
+Speed, Brightness {
+    -fx-spacing: 10;
 }
 
 .radio-button {
     -fx-alignment: center;
     -fx-padding: 10 10;
+}
+
+#labels-color {
+    -fx-padding: 20 10;
+    -fx-spacing: 15;
+}
+
+#buttons-zone {
+    -fx-padding: 15;
+    -fx-spacing: 15;
+}
+
+.slider {
+    -fx-min-width: 250;
+}
+
+.text-field {
+    -fx-max-width: 50;
 }

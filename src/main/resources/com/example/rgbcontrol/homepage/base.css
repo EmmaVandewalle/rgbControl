@@ -2,3 +2,7 @@ BaseCard {
     -fx-min-width: 800;
     -fx-min-height: 400;
 }
+
+CopyRGB {
+    -fx-padding: 15 0 0 0;
+}

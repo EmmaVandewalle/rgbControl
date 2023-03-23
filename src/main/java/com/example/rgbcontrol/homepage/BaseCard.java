@@ -26,18 +26,20 @@ public class BaseCard extends BorderPane {
 
 
         // zone 1,2,3,4
-        Zone zoneOne = new Zone();
-        Zone zoneTwo = new Zone();
+        CopyRGB copyRGB = new CopyRGB(new int[]{255, 255, 255});
+
+        Zone zoneOne = new Zone(copyRGB);
+        Zone zoneTwo = new Zone(copyRGB);
 
         HBox zonesOneTwo = new HBox(zoneOne, zoneTwo);
 
-        Zone zoneThree = new Zone();
-        Zone zoneFour = new Zone();
+        Zone zoneThree = new Zone(copyRGB);
+        Zone zoneFour = new Zone(copyRGB);
 
         HBox zonesThreeFour = new HBox(zoneThree, zoneFour);
 
 
-        VBox zones = new VBox(zonesOneTwo, zonesThreeFour);
+        VBox zones = new VBox(copyRGB, zonesOneTwo, zonesThreeFour);
 
         // profile name
 
