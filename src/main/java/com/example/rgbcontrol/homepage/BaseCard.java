@@ -1,13 +1,17 @@
 package com.example.rgbcontrol.homepage;
 
+import com.example.rgbcontrol.Builder;
 import com.example.rgbcontrol.containers.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+import java.util.Objects;
+
 public class BaseCard extends BorderPane {
 
-    public BaseCard() {
+    public BaseCard() throws IOException {
         HBox mainBox = new HBox();
 
         // mode
@@ -38,8 +42,11 @@ public class BaseCard extends BorderPane {
 
         HBox zonesThreeFour = new HBox(zoneThree, zoneFour);
 
-
         VBox zones = new VBox(copyRGB, zonesOneTwo, zonesThreeFour);
+
+        // execute current settings
+        Builder builder = new Builder();
+        builder.executer();
 
         // profile name
 
@@ -51,7 +58,7 @@ public class BaseCard extends BorderPane {
 
         setCenter(mainBox);
 
-        getStylesheets().add(getClass().getResource("base.css").toExternalForm());
+        getStylesheets().add(Objects.requireNonNull(getClass().getResource("base.css")).toExternalForm());
     }
 
 }
